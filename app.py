@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, request 
+from flask_cors import CORS
 import os
 app = Flask(__name__) 
+CORS(app)
 
 
 @app.route('/', methods = ['GET', 'POST']) 
 def home():
   data_file = open("SJ.txt", "r")
-  return(data_file.readlines()[0])
+  return jsonify(data_file.readlines()[0])
 
 # driver function 
 if __name__ == '__main__': 
