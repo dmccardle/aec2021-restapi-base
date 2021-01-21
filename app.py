@@ -8,7 +8,7 @@ CORS(app)
 @app.route('/', methods = ['GET', 'POST']) 
 def home():
   data_file = open("SJ.txt", "r")
-  return jsonify(data_file.readlines()[0])
+  return jsonify(data_file.readlines()[4::])
 
 # driver function 
 if __name__ == '__main__': 
