@@ -28,7 +28,7 @@ car_schema = CarSchema(many=True)
 def parse_car_data():
     data_file = open("vehicles.txt", "r")
     Lines = data_file.readlines()
-    for i in range(2, 11):
+    for i in range(2, len(Lines)):
         car = parse_car_from_data_lines(Lines[i])
         list_of_cars.append(car)
     return car_schema.jsonify(list_of_cars)
@@ -49,7 +49,22 @@ def parse_car_from_data_lines(car_data_lines):
 def home():
   data_file = open("vehicles.txt", "r")
   return parse_car_data()
-  #return jsonify(data_file.readlines()[2::])
+
+#@app.route('/', methods = ['GET', 'POST']) 
+#def home():
+  # 1. receive input from user (will fake for now)
+   # data_file = open("vehicles.txt", "r")
+    #parse_car_data()
+    #for i in range(2, 11):
+    #    print(list_of_cars[i])
+    
+    #cost = 40000 # consider range
+    #location = 'New Brunswick' # province
+    #kperYear = 40000 (high, med, low) # -> high
+    #numSeats = 5 # consider range
+
+    #return 5
+
 
 # driver function 
 if __name__ == '__main__': 
