@@ -64,12 +64,12 @@ def output():
 
     # reducing cost based on savings
     for i in trueList:
-        i.cost = i.cost - i.saving
+        i.cost = int(i.cost) - int(i.saving)
 
     if cost < 43000:
         for i in trueList:
             if i.cost >= 43000:
-                trueList.pop(i)
+                trueList.remove(i)
 
     #return 5
 
