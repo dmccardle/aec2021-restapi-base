@@ -62,9 +62,9 @@ def output():
 
     trueList = list_of_cars
 
+    # reducing cost based on savings
     for i in trueList:
-        i.cost = i.cost + i.saving
-
+        i.cost = i.cost - i.saving
 
     if cost < 43000:
         for i in trueList:
