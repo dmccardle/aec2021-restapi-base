@@ -96,15 +96,20 @@ def emission_analysis():
 def failCar(x):
     if len(x) > 1:
         minCar = x[0]
-        min = 999999
+        mins = 999999
         for i in x:
-            if sum(i.costAnalysis) < int(min):
-                min = sum(i.costAnalysis)
+            if sum(i.costAnalysis) < int(mins):
+                mins = sum(i.costAnalysis)
                 minCar = i
     
+        final = []
         for i in x:
-            if sum(i.costAnalysis) != min:
+            if sum(i.costAnalysis) != mins:
                 x.remove(i)
+            else:
+                return i
+    else:
+        return x[0]
 
 
 @app.route('/', methods = ['GET', 'POST']) 
@@ -150,67 +155,71 @@ def output():
             count = count + 1
 
     # check if any in budget
+    gasListwB = []
     if (count != 0):
         for i in gasList:
             if int(i.cost) > maxCost or int(i.cost) < minCost:
-                gasList.remove(i)
-        
+                print(5)
+            else:
+                gasListwB.append(i)
+
         count = 0
-        for i in gasList:
+        for i in gasListwB:
             if int(i.seats) == numSeats:
                 count = count + 1
 
-
-
         # check if seat num is good
+        gasListwBaS = []
         if (count != 0):
-            for i in gasList:
+            for i in gasListwB:
                 if int(i.seats) != numSeats:
-                    gasList.remove(i)
+                    print(5)
+                else:
+                    gasListwBaS.append(i)
             
-            failCar(gasList)
+            final = failCar(gasListwBaS)
         else:
-            failCar(gasList)
+            final = failCar(gasListwBaS)
     else:
-        failCar(gasList)
-                
-    minCost = 10000 
-    maxCost = 35000 
+        final = failCar(gasListwBaS)
 
     # elec List
+    
     count = 0
     for i in elecList:
         if int(i.cost) <= maxCost and int(i.cost) >= minCost:
             count = count + 1
 
     # check if any in budget
+    elecListwB = []
     if count != 0:
         for i in elecList:
             if int(i.cost) > maxCost or int(i.cost) < minCost:
-                elecList.remove(i)
-
-        return car_schema.jsonify(elecList)     
+                print(5)   
+            else:
+                elecListwB.append(i)
         
         count = 0
-        for i in elecList:
+        for i in elecListwB:
             if int(i.seats) == numSeats:
                 count = count + 1
         
         # check if seat num is good
+        elecListwBaS = []
         if (count != 0):
-            for i in elecList:
+            for i in elecListwB:
                 if int(i.seats) != numSeats:
-                    elecList.remove(i)
+                    print(5)
+                else:
+                    elecListwBaS.append(i)
 
-            return car_schema.jsonify(elecList)
-
-            failCar(elecList)
+            final2 = failCar(elecListwBaS)
         else:
-            failCar(elecList)
+            final2 = failCar(elecListwBaS)
     else:
-        failCar(elecList)
+        final2 = failCar(elecListwBaS)
 
-    retList = [elecList[0], gasList[0]]
+    retList = [final2, final]
     return car_schema.jsonify(retList)
 
     #return 5
