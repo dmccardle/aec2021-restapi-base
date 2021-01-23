@@ -1,12 +1,12 @@
-Vehicle Make-Model-Year, Type of vehicle (Gas or ZEV), km range/charge or litres/100km, Cost (CAD), # of seats, Savings, image
+Vehicle Make-Model-Year, Type of vehicle (Gas or ZEV), km range/charge or litres/100km, Cost (CAD), # of seats, Savings, batterySize, image
 
-Hyundai-KonaElectric-2021, ZEV, 415, 44999, 5, 5000, https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-hyundai-kon-electric-mmp-1-1596821688.jpg?crop=0.933xw:0.700xh;0.0673xw,0.197xh&resize=640:*
-Tesla-Model3-2020, ZEV, 568, 52990, 5, 5000, https://tesla-cdn.thron.com/delivery/public/image/tesla/c82315a6-ac99-464a-a753-c26bc0fb647d/bvlatuR/std/1200x628/lhd-model-3-social
-Chevrolet-BoltEV-2021, ZEV, 417, 43090, 5, 5000, https://s.aolcdn.com/commerce/autodata/images/USC70CHC401A021001.jpg
-MINI-CooperSE3Door-2021, ZEV, 177, 28242, 5, 5000, https://86bd04aee645f41c2005-510904abdc95bfe9a6b152d3edc0036b.ssl.cf5.rackcdn.com/Public/img/2016-739165/content/electric/CooperSE.png?v=-a_UOUvPnzZ5ZvQolRE4wGwZnJ5cXjaHIMqSBj9PymI1
-Volkswagen-eGolf-2020, ZEV, 201, 45632, 5, 5000, https://images.hgmsites.net/hug/2017-volkswagen-e-golf-first-drive-new-york-city-april-2017_100605726_h.jpg
-smart-EQfortwocoupe-2019, ZEV, 101, 29050, 2, 5000, https://s.aolcdn.com/commerce/autodata/images/CAC80SMC021A021001.jpg
-Civic-LXCoupe-2020, Gas, 8.6, 22045, 5, 0, https://images.honda.ca/models/H/Models/2020/civic_coupe/lx_10614_crystal_black_pearl_front.png?width=1000
-Chrysler-Pacifica-2021, Gas, 10.9, 42672, 7, 0, https://s.aolcdn.com/os/ab/_cms/2019/10/15035709/2020-chrysler-pacifica-red-s-1015-1.jpg
-Ford-F350SuperDuty-2020, Gas, 13.94, 45610, 6, 0, https://s.aolcdn.com/commerce/autodata/images/USD00FOT128F021001.jpg
-Suburu-Outback-2021, Gas, 9.1, 30998, 5, 0, https://www.subaru.com/content/dam/subaru/vehicles/2021/OBK/vsp/landing-page/compare-models/21_OBK_Tour_024_P8Y.png
+Hyundai-KonaElectric-2021,ZEV,415,44999,5,5000,64,https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-hyundai-kon-electric-mmp-1-1596821688.jpg?crop=0.933xw:0.700xh;0.0673xw,0.197xh&resize=640:*
+Tesla-Model3-2020,ZEV,568,52990,5,5000,75,https://tesla-cdn.thron.com/delivery/public/image/tesla/c82315a6-ac99-464a-a753-c26bc0fb647d/bvlatuR/std/1200x628/lhd-model-3-social
+Chevrolet-BoltEV-2021,ZEV,417,43090,5,5000,60,https://s.aolcdn.com/commerce/autodata/images/USC70CHC401A021001.jpg
+MINI-CooperSE3Door-2021,ZEV,177,28242,5,5000,32.6,https://86bd04aee645f41c2005-510904abdc95bfe9a6b152d3edc0036b.ssl.cf5.rackcdn.com/Public/img/2016-739165/content/electric/CooperSE.png?v=-a_UOUvPnzZ5ZvQolRE4wGwZnJ5cXjaHIMqSBj9PymI1
+Volkswagen-eGolf-2020,ZEV,201,45632,5,5000,35.8,https://images.hgmsites.net/hug/2017-volkswagen-e-golf-first-drive-new-york-city-april-2017_100605726_h.jpg
+smart-EQfortwocoupe-2019,ZEV,101,29050,2,5000,17.2,https://s.aolcdn.com/commerce/autodata/images/CAC80SMC021A021001.jpg
+Civic-LXCoupe-2020,Gas,8.6,22045,5,0,-1,https://images.honda.ca/models/H/Models/2020/civic_coupe/lx_10614_crystal_black_pearl_front.png?width=1000
+Chrysler-Pacifica-2021,Gas,10.9,42672,7,0,-1,https://s.aolcdn.com/os/ab/_cms/2019/10/15035709/2020-chrysler-pacifica-red-s-1015-1.jpg
+Ford-F350SuperDuty-2020,Gas,13.94,45610,6,0,-1,https://s.aolcdn.com/commerce/autodata/images/USD00FOT128F021001.jpg
+Suburu-Outback-2021,Gas,9.1,30998,5,0,-1,https://www.subaru.com/content/dam/subaru/vehicles/2021/OBK/vsp/landing-page/compare-models/21_OBK_Tour_024_P8Y.png
