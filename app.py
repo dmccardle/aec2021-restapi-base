@@ -130,11 +130,6 @@ def output():
     climate = request_dict['climate']
 
   # 1. receive input from user (will fake for now)    
-    minCost = 10000 # consider range
-    maxCost = 35000 # consider range
-    location = 'NB' # province
-    kilo_per_year = 40000 #(high, med, low) -> high 
-    numSeats = 5 # consider range
 
     trueList = list_of_cars
 
