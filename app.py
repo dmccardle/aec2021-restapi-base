@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 import os
+import json
 app = Flask(__name__) 
 CORS(app)
 
@@ -119,6 +120,14 @@ def home():
 
 @app.route('/output', methods = ['GET', 'POST'])
 def output():
+    request_dict = json.loads(request.data)
+
+    location = request_dict['province']
+    minCost = int(request_dict['priceRange'][0])
+    maxCost = int(request_dict['priceRange'][1])
+    kilo_per_year = int(request_dict['kmPerYear'])
+    numSeats = int(request_dict['prefNumberOfSeats'])
+    climate = request_dict['climate']
 
   # 1. receive input from user (will fake for now)    
     minCost = 10000 # consider range
