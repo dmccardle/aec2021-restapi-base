@@ -9,17 +9,18 @@ ma = Marshmallow(app)
 
 # classes
 class Car():
-    def __init__(self, name, carType, carRange, cost, seats, link):
+    def __init__(self, name, carType, carRange, cost, seats, saving, link):
         self.name = name
         self.carType = carType
         self.carRange = carRange
         self.cost = cost
         self.seats = seats
+        self.saving = saving
         self.link = link
 
 class CarSchema(ma.Schema):
     class Meta:
-        fields = ('name', 'carType', 'carRange', 'cost', 'seats', 'link')
+        fields = ('name', 'carType', 'carRange', 'cost', 'seats', 'saving', 'link')
 
 list_of_cars = []
 car_schema = CarSchema(many=True)
@@ -41,8 +42,9 @@ def parse_car_from_data_lines(car_data_lines):
     carRange = carList[2]
     cost = carList[3]
     seats = carList[4]
-    link = carList[5]
-    car = Car(name, carType, carRange, cost, seats, link)
+    saving = carList[5]
+    link = carList[6]
+    car = Car(name, carType, carRange, cost, seats, saving, link)
     return car
 
 @app.route('/', methods = ['GET', 'POST']) 
@@ -50,18 +52,24 @@ def home():
   data_file = open("vehicles.txt", "r")
   return parse_car_data()
 
-#@app.route('/', methods = ['GET', 'POST']) 
-#def home():
-  # 1. receive input from user (will fake for now)
-   # data_file = open("vehicles.txt", "r")
-    #parse_car_data()
-    #for i in range(2, 11):
-    #    print(list_of_cars[i])
-    
-    #cost = 40000 # consider range
-    #location = 'New Brunswick' # province
-    #kperYear = 40000 (high, med, low) # -> high
-    #numSeats = 5 # consider range
+@app.route('/output', methods = ['GET', 'POST'])
+def output():
+  # 1. receive input from user (will fake for now)    
+    cost = 40000 # consider range
+    location = 'New Brunswick' # province
+    kperYear = 40000 #(high, med, low) -> high 
+    numSeats = 5 # consider range
+
+    trueList = list_of_cars
+
+    for i in trueList:
+        i.cost = i.cost + i.saving
+
+
+    if cost < 43000:
+        for i in trueList:
+            if i.cost >= 43000:
+                trueList.pop(i)
 
     #return 5
 
