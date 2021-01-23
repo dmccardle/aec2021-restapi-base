@@ -1,0 +1,13 @@
+Vehicle Make-Model-Year, Type of vehicle (Gas or ZEV), km range/charge or litres/100km, Cost (CAD), # of seats, Savings, image
+
+Hyundai-KonaElectric-2021, ZEV, 415, 44999, 5, 5000, link
+Tesla-Model3-2020, ZEV, 568, 52990, 5, 5000, link
+Chevrolet-BoltEV-2021, ZEV, 417, 43090, 5, 5000, link
+MINI-CooperSE3Door-2021, ZEV, 177, 28242, 5, 5000, link
+Volkswagen-eGolf-2020, ZEV, 201, 45632, 5, 5000, link
+smart-EQfortwocoupe-2019, ZEV, 101, 29050, 2, 5000, link
+
+Civic-LXCoupe-2020, Gas, 8.6, 22045, 5, 0, link
+Chrysler-Pacifica-2021, Gas, 10.9, 42672, 7, 0, link
+Ford-F350SuperDuty-2020, Gas, 13.94, 45610, 6, 0, link
+Suburu-Outback-2021, Gas, 9.1, 30998, 5, 0, link
