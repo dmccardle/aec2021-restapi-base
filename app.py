@@ -94,32 +94,36 @@ def emission_analysis():
         if i.carType != 'ZEV':
             i.emissions = (2.33 * float(i.carRange) / 100) + (0.43 * float(i.carRange) / 100) # kg of co2 per km
         
-def failCar(x):
-    if len(x) > 1:
-        minCar = x[0]
+def failCar(listOfRemainingCars):
+    if len(listOfRemainingCars) > 1:
+        minCar = listOfRemainingCars[0]
         mins = 999999
-        for i in x:
+        for i in listOfRemainingCars:
             if sum(i.costAnalysis) < int(mins):
                 mins = sum(i.costAnalysis)
                 minCar = i
     
         final = []
-        for i in x:
+        for i in listOfRemainingCars:
             if sum(i.costAnalysis) != mins:
-                x.remove(i)
+                listOfRemainingCars.remove(i)
             else:
                 return i
     else:
-        return x[0]
+        return listOfRemainingCars[0]
 
 
 @app.route('/', methods = ['GET', 'POST']) 
 def home():
-  data_file = open("vehicles.txt", "r")
-  return parse_car_data()
+    data_file = open("vehicles.txt", "r")
+    return parse_car_data()
+
 
 @app.route('/output', methods = ['GET', 'POST'])
 def output():
+    data_file = open("vehicles.txt", "r")
+    parse_car_data() 
+
     request_dict = json.loads(request.data)
 
     location = request_dict['province']
@@ -151,6 +155,7 @@ def output():
             elecList.append(i)
         else:
             gasList.append(i)
+            
 
     # gas List
     count = 0
@@ -160,10 +165,11 @@ def output():
 
     # check if any in budget
     gasListwB = []
+    gasListwBaS = []
     if (count != 0):
         for i in gasList:
             if int(i.cost) > maxCost or int(i.cost) < minCost:
-                print(5)
+                pass
             else:
                 gasListwB.append(i)
 
@@ -173,33 +179,33 @@ def output():
                 count = count + 1
 
         # check if seat num is good
-        gasListwBaS = []
         if (count != 0):
             for i in gasListwB:
                 if int(i.seats) != numSeats:
-                    print(5)
+                    pass
                 else:
                     gasListwBaS.append(i)
             
             final = failCar(gasListwBaS)
         else:
-            final = failCar(gasListwBaS)
+            final = failCar(gasListwB)
     else:
-        final = failCar(gasListwBaS)
+        final = failCar(gasList)
 
     # elec List
-    
+
+    elecListwB = []
+    elecListwBaS = []
     count = 0
     for i in elecList:
         if int(i.cost) <= maxCost and int(i.cost) >= minCost:
             count = count + 1
 
     # check if any in budget
-    elecListwB = []
     if count != 0:
         for i in elecList:
             if int(i.cost) > maxCost or int(i.cost) < minCost:
-                print(5)   
+                pass
             else:
                 elecListwB.append(i)
         
@@ -209,19 +215,18 @@ def output():
                 count = count + 1
         
         # check if seat num is good
-        elecListwBaS = []
         if (count != 0):
             for i in elecListwB:
                 if int(i.seats) != numSeats:
-                    print(5)
+                    pass
                 else:
                     elecListwBaS.append(i)
 
             final2 = failCar(elecListwBaS)
         else:
-            final2 = failCar(elecListwBaS)
+            final2 = failCar(elecListwB)
     else:
-        final2 = failCar(elecListwBaS)
+        final2 = failCar(elecList)
 
     retList = [final2, final]
     return car_schema.jsonify(retList)
@@ -230,8 +235,8 @@ def output():
 
 
 # driver function 
-if __name__ == '__main__': 
-	app.run(debug = True) 
+if __name__ == '__main__':
+    app.run(debug = True) 
 
 
 #Notes:
